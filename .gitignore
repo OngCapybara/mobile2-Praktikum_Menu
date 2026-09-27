@@ -1,0 +1,61 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+
+# IntelliJ-based IDEs (Android Studio, IntelliJ IDEA)
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Visual Studio Code
+.vscode/
+
+# Flutter / Dart / Pub packages
+.dart_tool/
+.fvm/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+
+# Symbol files
+*.pdb
+*.dbg
+
+# Android native build files
+/android/app/debug
+/android/app/profile
+/android/app/release
+/android/app/src/debug/libs
+/android/app/src/profile/libs
+/android/app/src/release/libs
+
+# iOS native build files
+/ios/Runner/Assets.xcassets/AppIcon.appiconset/
+/ios/Runner/GeneratedPluginRegistrant.*
+
+# macOS native build files
+/macos/Flutter/ephemeral/
+
+# Windows / Linux desktop build outputs
+/linux/flutter/ephemeral/
+/windows/flutter/ephemeral/
+
+# Web build outputs
+/web/canvaskit/
+
+# Local configuration & secrets
+.env*
+local.properties
