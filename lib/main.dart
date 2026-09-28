@@ -3,19 +3,43 @@ import 'pages/menu_page.dart';
 
 void main() => runApp(const MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  static _MyAppState of(BuildContext context) =>
+      context.findAncestorStateOfType<_MyAppState>()!;
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  ThemeMode _themeMode = ThemeMode.light;
+
+  void toggleTheme(bool isDark) {
+    setState(() {
+      _themeMode = isDark ? ThemeMode.dark : ThemeMode.light;
+    });
+  }
+
+  bool get isDarkMode => _themeMode == ThemeMode.dark;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Portal Kampus',
+      title: 'Portal Akademik Kampus',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.indigo,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
-        useMaterial3: false,
+        brightness: Brightness.light,
+        colorSchemeSeed: Colors.indigo,
+        useMaterial3: true,
       ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        colorSchemeSeed: Colors.indigo,
+        useMaterial3: true,
+      ),
+      themeMode: _themeMode,
       home: const MenuPage(),
     );
   }

@@ -18,7 +18,7 @@ class AppDrawer extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(8),
                   child: Image.asset(
-                    'assets/logo.png',
+                    'assets/logo.jpeg',
                     height: 55,
                     width: 55,
                     fit: BoxFit.cover,

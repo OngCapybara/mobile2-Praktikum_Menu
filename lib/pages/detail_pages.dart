@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../main.dart'; // Import main.dart agar MyApp bisa diakses
 import 'simple_page.dart';
 
 class NotificationListPage extends StatelessWidget {
@@ -63,7 +64,50 @@ class NotificationListPage extends StatelessWidget {
   }
 }
 
+// -----------------------------------------------------------------------------
+// Halaman Pengaturan (Dark Mode Toggle)
+// -----------------------------------------------------------------------------
+class PengaturanPage extends StatelessWidget {
+  const PengaturanPage({super.key});
 
+  @override
+  Widget build(BuildContext context) {
+    final isDark = MyApp.of(context).isDarkMode;
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Pengaturan'),
+        backgroundColor: Colors.indigo,
+        foregroundColor: Colors.white,
+      ),
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          Card(
+            child: SwitchListTile(
+              secondary: Icon(
+                isDark ? Icons.dark_mode : Icons.light_mode,
+                color: Colors.indigo,
+              ),
+              title: const Text('Mode Gelap (Dark Mode)'),
+              subtitle: Text(
+                isDark ? 'Tema gelap aktif' : 'Tema terang aktif',
+              ),
+              value: isDark,
+              onChanged: (value) {
+                MyApp.of(context).toggleTheme(value);
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Halaman Detail Lainnya
+// -----------------------------------------------------------------------------
 class ProfilPage extends StatelessWidget {
   const ProfilPage({super.key});
   @override
@@ -104,10 +148,4 @@ class TranskripPage extends StatelessWidget {
   const TranskripPage({super.key});
   @override
   Widget build(BuildContext context) => const SimplePage(title: 'Transkrip Nilai', icon: Icons.assignment);
-}
-
-class PengaturanPage extends StatelessWidget {
-  const PengaturanPage({super.key});
-  @override
-  Widget build(BuildContext context) => const SimplePage(title: 'Pengaturan', icon: Icons.settings);
 }
